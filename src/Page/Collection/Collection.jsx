@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import UseMobiles from '../../Hook/UseMobiles';
 import { FaCamera, FaMemory } from "react-icons/fa";
-import { GiProcessor, GiWaterRecycling } from "react-icons/gi";
+import { GiProcessor,  } from "react-icons/gi";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../../Provider/Authprovider';
 import Swal from 'sweetalert2';
-import { useQuery } from '@tanstack/react-query';
 const Collection = () => {
     const { user } = useContext(AuthContext)
     //const [value, setvalue] = useState("2000")
@@ -21,7 +20,7 @@ const Collection = () => {
     //     .then(res=>{
     //         console.log(res)
     //         setmobile(res.data)
-    //     })
+    //     })   
     // },[searchvalue])
 
     const handleAddCart = async (id) => {
@@ -111,7 +110,8 @@ const Collection = () => {
                                     <h2 className="flex flex-row gap-2 items-center text-center text-purple-500"><GiProcessor />{item.processor}</h2>
                                     <h2 className="card-title"><FaMemory />{item.ram}</h2>
                                     <h2 className="card-title text-purple-500"><GiProcessor />{item.rom}</h2>
-                                    <h2 className=" flex flex-row gap-2 items-center text-center"><GiWaterRecycling />{item.os}</h2>
+                                    <h2 className=" flex flex-row gap-2 items-center text-center">Os:{item.os}</h2>
+                                    <h2 className="card-title text-purple-500">Type: {item.type}</h2>
 
                                 </div>
                                 <button onClick={() => handleAddCart(item._id)} className='btn btn-primary'>Add Cart</button>
